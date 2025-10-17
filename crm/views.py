@@ -29,5 +29,61 @@ class EmployeeList(View):
         data =Employeemodel.objects.all()
 
         return render(request,"employeelist.html",{"data":data})
+    
+
+class EmployeeUpdate(View):
+
+    def get(self,request,**kwargs):
+
+        update_id = kwargs.get("pk")
+
+        emp_data = Employeemodel.objects.get(id=update_id)
+
+        return render(request,"emp_update.html",{"emp_data":emp_data})
+    
+    def post(self,request,**kwargs):
+
+        update_id = kwargs.get("pk")
+
+        emp_data = Employeemodel.objects.get(id=update_id)
+
+        print(request.POST)
+
+        emp_data.name = request.POST.get("username") 
+
+        emp_data.role = request.POST.get("userrole")
+
+        emp_data.place = request.POST.get("userplace")
+
+        emp_data.salary = request.POST.get("usersalary")
+
+        emp_data.save()
+
+        return render(request,"emp_update.html")
+    
+
+class Employeedelete(View):
+
+     def get(self,request,**kwargs):
+
+        delete_id = kwargs.get("pk")
+
+        emp_data = Employeemodel.objects.get(id=delete_id)
+
+        emp_data.delete()
+
+        return render(request,"add_employee.html")
+     
+
+class EmployeeretriveView(View):
+
+    def get(self,request,**kwargs):
+
+        retrive_id = kwargs.get("pk")
+
+        emp_data =  Employeemodel.objects.get(id= retrive_id)
+        
+        return render(request,"emp_details.html",{"emp_data":emp_data})
+
 
 
