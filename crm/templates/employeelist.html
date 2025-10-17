@@ -6,6 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    {{data}}
+    <h1 style="text-align: center;">EMPLOYEE DATA</h1>
+    <table style="width: 60%;  margin: 20px;border-collapse: collapse; border: 1px solid;">
+
+        <th style="border: 1px solid;">Name</th>
+        <th style="border: 1px solid;">Role</th>
+        <th style="border: 1px solid;">Place</th>
+        <th style="border: 1px solid;">Salary</th>
+        {% for emp in data %}
+
+        <tr style="border: 1px solid;">
+            <td style="border: 1px solid; text-align: center;">{{emp.name}}</td>
+            <td style="border: 1px solid; text-align: center;">{{emp.role}}</td>
+            <td style="border: 1px solid; text-align: center;">{{emp.place}}</td>
+            <td style="border: 1px solid; text-align: center;">{{emp.salary}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

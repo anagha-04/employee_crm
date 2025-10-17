@@ -23,8 +23,8 @@ urlpatterns = [
     path('add_emp/',Createemployeeview.as_view()),
     path('emp_list/',EmployeeList.as_view()),
     path('emp_update/<int:pk>',EmployeeUpdate.as_view()),
-    path('emp_delete/',Employeedelete.as_view()),
-    path('emp_retrive/',EmployeeretriveView.as_view()),
+    path('emp_delete/<int:pk>',Employeedelete.as_view()),
+    path('emp_retrive/<int:pk>',EmployeeretriveView.as_view()),
     
 
 
